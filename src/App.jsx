@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import NavBar from './components/NavBar';
 
 function App() {
 
@@ -13,6 +12,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
         </Routes>
