@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
-
-import { useState, useEffect } from "react";
 import GameCard from "../components/GameCard";
+import GlobalContext from "../context/GlobalContext";
 
 export default function GamesPage() {
+    const [games, setGames] = useState([]);
+    const { loading, setLoading } = useContext(GlobalContext);
 
-    const [games, setGames] = useState([])
+    const fetchGames = () => {
+        setLoading(true);
+        axios.get(`${import.meta.env.VITE_API_URL}`)
+            .then((response) => {
+                console.log("Fetching games...");
+                const { data } = response;
+                setGames(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }
+
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}`)
-            .then((res) => setGames(res.data))
-            .catch((err) => console.error(err))
-    }, [])
+        fetchGames();
+    }, []);
 
-    console.log(games);
+    if (!games) {
+        return <p className="text-white">Game not found...</p>;
+    }
+
+    if (loading) {
+        return <p className="text-white">Loading game...</p>
+    }
 
     return (
         <>
@@ -25,5 +45,5 @@ export default function GamesPage() {
                 </div>
             </div>
         </>
-    )
+    );
 }
