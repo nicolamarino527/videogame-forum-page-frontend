@@ -1,7 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import GlobalContext from "../context/GlobalContext";
 
 export default function NavBar() {
+
+    const [query, setQuery] = useState("")
+    const { setSearch } = useContext(GlobalContext)
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        query.trim()
+        setSearch(query)
+        navigate("/games")
+    }
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark">
             <div className="container-fluid">
@@ -18,9 +31,13 @@ export default function NavBar() {
                             <Link to={"/games"} className="nav-link" href="#">games</Link>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success" type="submit">Search</button>
+                    <form className="d-flex" role="search" onChange={handleSubmit}>
+                        <input className="form-control me-2"
+                            onChange={(e) => { setQuery(e.target.value) }}
+                            type="search" placeholder="Search"
+                            aria-label="Search"
+                            value={query}
+                        />
                     </form>
                 </div>
             </div>
