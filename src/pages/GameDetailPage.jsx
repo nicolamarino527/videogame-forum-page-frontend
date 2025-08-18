@@ -37,6 +37,8 @@ export default function GameDetailPage() {
 
     return (
         <>
+            <br />
+            <br />
             <div className="container d-flex justify-content-center gap-2">
                 <div className="card bg-dark">
                     <img className="img-fluid rounded-start" src={game.coverImage} alt={game.title} style={{ height: '200px', objectFit: 'cover' }} />

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
 import { GlobalProvider } from './context/GlobalContext';
+
+import '@fontsource/roboto';
+import '@fontsource/rajdhani';
 
 import Home from './pages/home';
 import './App.css'

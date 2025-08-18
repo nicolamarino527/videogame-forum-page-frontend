@@ -51,25 +51,27 @@ export default function GamesPage() {
 
     return (
         <>
-            <h1>Gamepage</h1>
-            <br />
-            <div>
-                <div>
-                    <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("") }}>
-                        all games
-                    </button>
-                    <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("PC") }}>
-                        pc
-                    </button>
-                    <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("PlayStation 5") }}>
-                        Playstation
-                    </button>
-                    <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("Xbox Series X") }}>
-                        Xbox
-                    </button>
-                    <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("Nintendo Switch") }}>
-                        Switch
-                    </button>
+            <div className="container">
+                <h1>Gamepage</h1>
+                <br />
+                <div className="d-flex justify-content-center">
+                    <div>
+                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("") }}>
+                            all games
+                        </button>
+                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("PC") }}>
+                            pc
+                        </button>
+                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("PlayStation 5") }}>
+                            Playstation
+                        </button>
+                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("Xbox Series X") }}>
+                            Xbox
+                        </button>
+                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("Nintendo Switch") }}>
+                            Switch
+                        </button>
+                    </div>
                 </div>
             </div>
             <br />

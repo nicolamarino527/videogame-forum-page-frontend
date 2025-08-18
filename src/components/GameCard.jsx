@@ -13,9 +13,9 @@ export default function GameCard({ game }) {
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <h5 className="card-title">{game.title}</h5>
+                                    <h5 className="card-title text-yellow">{game.title}</h5>
                                     <p className="card-text">{game.description}</p>
-                                    <p className="card-text">{game.releaseDate}<small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                                    <p className="card-text"> release: {game.releaseDate}<small className="text-body-secondary">Last updated 3 mins ago</small></p>
                                     <p className="card-text">{game.genres.map((genre) => (<li key={genre.id}>{genre.name}</li>))}</p>
                                 </div>
                             </div>
