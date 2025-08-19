@@ -19,7 +19,7 @@ export default function Home() {
                 <br />
                 <section>
                     <h1 className="my-3">Homepage</h1>
-                    <div className="card mb-5 bg-transparent  text-white">
+                    <div className="card mb-5 bg-dark bg-dark  text-white">
                         <img
                             src={skgImage}
                             className="card-img-top"
@@ -41,7 +41,7 @@ export default function Home() {
 
                 <h3 className="m-3"> POPULAR</h3>
                 <section className="d-flex justify-content-around">
-                    <div className="card col-md-5  mb-5 bg-transparent text-white">
+                    <div className="card col-md-5  mb-5 bg-dark text-white">
                         <img
                             src={ggImage}
                             className="card-img-top"
@@ -60,7 +60,7 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
-                    <div className="card col-md-5  mb-5 bg-transparent  text-white">
+                    <div className="card col-md-5  mb-5 bg-dark  text-white">
                         <img
                             src={dkImage}
                             className="card-img-top"
@@ -84,7 +84,7 @@ export default function Home() {
 
                 </section>
                 <section className="d-flex justify-content-around">
-                    <div className="card col-md-5  mb-5 bg-transparent  text-white">
+                    <div className="card col-md-5  mb-5 bg-dark  text-white">
                         <img
                             src={tImage}
                             className="card-img-top"
@@ -103,7 +103,7 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
-                    <div className="card col-md-5  mb-5 bg-transparent  text-white">
+                    <div className="card col-md-5  mb-5 bg-dark  text-white">
                         <img
                             src={bo7image}
                             className="card-img-top"
@@ -124,7 +124,7 @@ export default function Home() {
                     </div>
                 </section>
                 <section>
-                    <div className="card mb-5 bg-transparent  text-white">
+                    <div className="card mb-5 bg-dark  text-white">
                         <img
                             src={gtaImage}
                             className="card-img-top"

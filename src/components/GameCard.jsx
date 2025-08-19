@@ -5,6 +5,7 @@ export default function GameCard({ game }) {
     return (
         <>
             <Link to={`/games/${game.id}`} style={{ textDecoration: "none" }} >
+                <hr className="text-white" />
                 <div className="container">
                     <div className="card bg-dark text-white shadow-lg border-0 rounded-3 game-card m-3" >
                         <div className="row g-0">
@@ -27,7 +28,7 @@ export default function GameCard({ game }) {
                         </div>
                     </div>
                 </div>
-                <hr className="text-white" />
+
             </Link >
         </>
     )

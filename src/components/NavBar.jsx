@@ -23,7 +23,8 @@ export default function NavBar() {
         <div>
             <nav className="navbar navbar-expand-sm navbar-dark ">
                 <div className="container-fluid">
-                    <img className="logo" src={logo} alt="" />
+                    <Link to={"/"} className="nav-link active" aria-current="page"><img className="logo" src={logo} alt="" /></Link>
+
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -55,7 +56,7 @@ export default function NavBar() {
                                     onChange={(e) => setQuery(e.target.value)}
                                 />
                                 <button className="search-btn" type="submit">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i className="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </form>
                         </div>

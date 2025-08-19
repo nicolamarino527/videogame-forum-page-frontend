@@ -6,7 +6,7 @@ export default function Footer() {
         <footer className="bg-black text-white position-relative mt-5">
             <div className="news-letter-box">
 
-                <h4 className="pt-2"><i class="fa-regular fa-paper-plane"></i> Sing up to the Newsletter</h4>
+                <h4 className="pt-2"><i className="fa-regular fa-paper-plane"></i> Sing up to the Newsletter</h4>
                 <button className="newsletter-btn btn ">Sing UP!</button>
             </div>
             <div className="wall">

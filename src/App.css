@@ -167,3 +167,14 @@ h6 {
 .news-letter-btn:hover {
     background: rgb(216, 216, 0);
 }
+
+.badge {
+    height: 30px;
+    font-size: 17px;
+
+}
+
+.badge:hover {
+    background-color: white;
+    transition: 0.5s;
+}

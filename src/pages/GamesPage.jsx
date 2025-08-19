@@ -7,6 +7,8 @@ export default function GamesPage() {
 
     const [games, setGames] = useState([])
     const [selectedPlatform, setSelectedPlatform] = useState("")
+    const [genres, setGenres] = useState([])
+    const [selectedGenre, setSelectedGenre] = useState("")
     const { loading, setLoading, search } = useContext(GlobalContext)
 
     console.log(search)
@@ -30,21 +32,42 @@ export default function GamesPage() {
             });
     }
 
+    const fetchGenres = () => {
+        setLoading(true)
+        axios.get(`${import.meta.env.VITE_API_URL}/genres`)
+            .then((response) => {
+                console.log("fetching genres...");
+                const { data } = response;
+                setGenres(data)
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }
+
 
 
     useEffect(() => {
         fetchGames();
     }, [search]);
 
+    useEffect(() => {
+        fetchGenres()
+    }, [])
 
     if (loading) {
         return <p className="text-white">Loading game...</p>
     }
 
     const filteredGames = games.filter((game) => {
-        if (!selectedPlatform) return true;
-        return game.platforms.some((platform) => platform.name === selectedPlatform);
-    });
+        const platformFilter = selectedPlatform ? game.platforms.some((platform) => platform.name === selectedPlatform) : true;
+        const genreFilter = selectedGenre ? game.genres.some((genre) => genre.name === selectedGenre) : true;
+
+        return platformFilter && genreFilter;
+    })
 
     return (
         <>
@@ -62,28 +85,32 @@ export default function GamesPage() {
                                 All Games
                             </button>
                             <button className={`btn text-white me-2 ${selectedPlatform === "PC" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("PC") }}>
-                                <i class="fa-solid fa-desktop"></i>PC
+                                <i className="fa-solid fa-desktop"></i>PC
                             </button>
                             <button className={`btn text-white me-2 ${selectedPlatform === "PlayStation 5" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("PlayStation 5") }}>
-                                <i class="fa-brands fa-playstation"></i> Playstation
+                                <i className="fa-brands fa-playstation"></i> Playstation
                             </button>
                             <button className={`btn text-white me-2 ${selectedPlatform === "Xbox Series X" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("Xbox Series X") }}>
-                                <i class="fa-brands fa-xbox"></i> Xbox
+                                <i className="fa-brands fa-xbox"></i> Xbox
                             </button>
                             <button className={`btn text-white me-2 ${selectedPlatform === "Nintendo Switch" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("Nintendo Switch") }}>
-                                <i class="fa-solid fa-gamepad"></i>  Nintendo
+                                <i className="fa-solid fa-gamepad"></i>  Nintendo
                             </button>
                         </div>
                     </div>
                 </div>
+                <br />
+                <div className="d-flex justify-content-center">
+                    <ul >
+                        <li className="badge bg-yellow text-dark me-3 mt-1" onClick={() => setSelectedGenre()}>All</li>
+                        {genres.map((genre) => <li className="badge bg-yellow text-dark me-2 mt-2" onClick={() => setSelectedGenre(genre.name)} key={genre.id}>{genre.name}</li>)}
+                    </ul>
+                </div>
             </div >
-            <br />
-            <br />
             <div>
                 <div className="container">
-                    {filteredGames.length > 0 ? filteredGames.map((game) => <GameCard key={game.id} game={game} />) : (<p className="text-white">No games found with that name...</p>)}
+                    {filteredGames.length > 0 ? filteredGames.map((game) => <GameCard key={game.id} game={game} />) : (<p className="text-white">No games found...</p>)}
                 </div>
-
             </div>
             <br />
         </>
