@@ -5,11 +5,18 @@ import dkImage from '../assets/dkBananza.png'
 import tImage from '../assets/terraria.png';
 import bo7image from '../assets/bo7.png';
 import gtaImage from '../assets/gta6.png'
+import bf6 from "../assets/bf6.png"
 
 export default function Home() {
     return (
         <>
+            {/* <div className="jumbo">
+                <img src={bf6} alt="" />
+            </div> */}
             <div className="container">
+                <br />
+                <br />
+                <br />
                 <section>
                     <h1 className="my-3">Homepage</h1>
                     <div className="card mb-5 bg-transparent  text-white">

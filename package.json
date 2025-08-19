@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/rajdhani": "^5.2.6",
     "@fontsource/roboto": "^5.2.6",
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "axios": "^1.11.0",
     "context": "^3.0.33",
     "react": "^19.1.1",

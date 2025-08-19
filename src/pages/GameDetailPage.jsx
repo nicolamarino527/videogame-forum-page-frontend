@@ -68,6 +68,9 @@ export default function GameDetailPage() {
                     </div>
                 </div>
             </div >
+            <br />
+            <br />
+            <br />
         </>
     );
 }

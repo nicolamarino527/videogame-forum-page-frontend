@@ -6,22 +6,28 @@ export default function GameCard({ game }) {
         <>
             <Link to={`/games/${game.id}`} style={{ textDecoration: "none" }} >
                 <div className="container">
-                    <div className="card mb-3  bg-dark text-white fixed-card" >
+                    <div className="card bg-dark text-white shadow-lg border-0 rounded-3 game-card m-3" >
                         <div className="row g-0">
                             <div className="col-md-4">
                                 <img src={game.coverImage} className="img-fluid rounded-start" alt="..." style={{ height: '200px', objectFit: 'cover' }} />
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body">
-                                    <h5 className="card-title text-yellow">{game.title}</h5>
-                                    <p className="card-text">{game.description}</p>
-                                    <p className="card-text"> release: {game.releaseDate}<small className="text-body-secondary">Last updated 3 mins ago</small></p>
-                                    <p className="card-text">{game.genres.map((genre) => (<li key={genre.id}>{genre.name}</li>))}</p>
+                                    <h4 className="card-title text-yellow fw-bold">{game.title}</h4>
+                                    <p className="card-text small text-light">{game.description}</p>
+                                    <p className="card-text"> Release: {game.releaseDate}<small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                                    <div className="mb-2">
+                                        {game.genres.map((genre) => (
+                                            <span key={genre.id} className="badge bg-yellow text-dark me-2">{genre.name}</span>
+                                        ))}
+                                    </div>
+                                    <br />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <hr className="text-white" />
             </Link >
         </>
     )

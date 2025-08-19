@@ -36,9 +36,6 @@ export default function GamesPage() {
         fetchGames();
     }, [search]);
 
-    if (!games) {
-        return <p className="text-white">Game not found...</p>;
-    }
 
     if (loading) {
         return <p className="text-white">Loading game...</p>
@@ -52,35 +49,43 @@ export default function GamesPage() {
     return (
         <>
             <div className="container">
-                <h1>Gamepage</h1>
+                <br />
+                <br />
+                <br />
+                <br />
+                <h1>Game Page</h1>
                 <br />
                 <div className="d-flex justify-content-center">
-                    <div>
-                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("") }}>
-                            all games
-                        </button>
-                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("PC") }}>
-                            pc
-                        </button>
-                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("PlayStation 5") }}>
-                            Playstation
-                        </button>
-                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("Xbox Series X") }}>
-                            Xbox
-                        </button>
-                        <button className="btn btn-outline-light me-2" onClick={() => { setSelectedPlatform("Nintendo Switch") }}>
-                            Switch
-                        </button>
+                    <div className="d-flex justify-content-center selection ">
+                        <div>
+                            <button className={`btn text-white me-2 ${selectedPlatform === "" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("") }}>
+                                All Games
+                            </button>
+                            <button className={`btn text-white me-2 ${selectedPlatform === "PC" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("PC") }}>
+                                <i class="fa-solid fa-desktop"></i>PC
+                            </button>
+                            <button className={`btn text-white me-2 ${selectedPlatform === "PlayStation 5" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("PlayStation 5") }}>
+                                <i class="fa-brands fa-playstation"></i> Playstation
+                            </button>
+                            <button className={`btn text-white me-2 ${selectedPlatform === "Xbox Series X" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("Xbox Series X") }}>
+                                <i class="fa-brands fa-xbox"></i> Xbox
+                            </button>
+                            <button className={`btn text-white me-2 ${selectedPlatform === "Nintendo Switch" ? "btn-active" : ""}`} onClick={() => { setSelectedPlatform("Nintendo Switch") }}>
+                                <i class="fa-solid fa-gamepad"></i>  Nintendo
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <br />
             <br />
             <div>
                 <div className="container">
-                    {filteredGames.map((game) => (<GameCard key={game.id} game={game} />))}
+                    {filteredGames.length > 0 ? filteredGames.map((game) => <GameCard key={game.id} game={game} />) : (<p className="text-white">No games found with that name...</p>)}
                 </div>
+
             </div>
+            <br />
         </>
     );
 }
